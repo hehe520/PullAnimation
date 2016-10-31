@@ -44,6 +44,7 @@
 }
 
 // 更改 frame 会触发 layoutSubviews
+// 触发 layoutSubviews 后，这个 view 里面的控件想怎么变（旋转，位移，缩放），全部这个方法里面就好了
 - (void)layoutSubviews {
     [super layoutSubviews];
     
@@ -72,6 +73,7 @@
     CGContextDrawPath(context, kCGPathFill);
 }
 
+// 这个 view 里面有多少个被点击的控件，把他的 frame 告诉 pointInside 就可以了
 - (BOOL)pointInside:(CGPoint)point withEvent:(UIEvent *)event {
     // 判断点击的点，在不在圆内
     CGPoint center = self.imageV.center;
